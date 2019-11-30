@@ -4,7 +4,7 @@ import { AES } from 'crypto-js';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 
-class CipherBin extends Component {
+class CipherBinWrite extends Component {
   state = {
     message: '',
     error: null,
@@ -26,9 +26,9 @@ class CipherBin extends Component {
       this.setState({ error: 'Sorry something went wrong!' });
       return;
     }
-
+console.log(`${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`)
     this.setState({
-      oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid}#${encryptionKey}`
+      oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`
     });
 
     // Decrypt
@@ -66,4 +66,4 @@ class CipherBin extends Component {
   }
 }
 
-export default CipherBin;
+export default CipherBinWrite;

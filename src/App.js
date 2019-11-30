@@ -1,14 +1,11 @@
 import React from 'react';
-// import { Container, Row } from 'react-bootstrap';
-import NavigationBar from './NavigationBar/NavigationBar';
-import CipherBin from './CipherBin/CipherBin';
+import CipherBinWrite from './CipherBinWrite/CipherBinWrite';
 import './App.css';
 
 function App() {
   return (
     <div className="cipher-bin-root">
-      <NavigationBar />
-      <CipherBin />
+      <CipherBinWrite />
     </div>
   );
 }
