@@ -1,21 +1,35 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Container } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import './NavigationBar.css';
 
-const NavigationBar = () => (
-  <Navbar bg="dark" variant="dark" fixed="top">
-    <Container>
-      <Navbar.Brand href="/">
-        <img
-          alt=""
-          src="/logo.svg"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />
-        cipherb.in
-      </Navbar.Brand>
-    </Container>
-  </Navbar>
-);
+const NavigationBar = ({ history }) => {
+  const handleClick = () => {
+    history.push('/');
+  };
 
-export default NavigationBar;
+  return (
+    <div className="nav-bar-wrapper">
+      <Container>
+        <div
+          tabIndex="0"
+          onClick={handleClick}
+          onKeyPress={handleClick}
+          role="button"
+          className="brand"
+        >
+          cipherb.in
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+export default withRouter(NavigationBar);
+
+NavigationBar.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};

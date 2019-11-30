@@ -1,0 +1,12 @@
+.nav-bar-wrapper {
+    width: 100%;
+    height: 70px;
+    background-color: #68a1fc;
+    box-shadow: 1px 1px 4px 2px #888888;
+}
+
+.brand {
+    text-align: center;
+    width: 150px;
+    font-size: 14px;
+}

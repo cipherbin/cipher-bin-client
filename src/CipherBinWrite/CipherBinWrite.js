@@ -7,8 +7,8 @@ import axios from 'axios';
 class CipherBinWrite extends Component {
   state = {
     message: '',
-    error: null,
     oneTimeUrl: null,
+    error: null,
   };
 
   handleSubmit = async (e) => {
@@ -26,16 +26,10 @@ class CipherBinWrite extends Component {
       this.setState({ error: 'Sorry something went wrong!' });
       return;
     }
-console.log(`${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`)
-    this.setState({
-      oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`
-    });
 
-    // Decrypt
-    // axios.get(`/msg?bin=${encryptionKey}#${uuid}`)
-    // const bytes  = AES.decrypt(cipherText, encryptionKey);
-    // const originalText = bytes.toString(CryptoJS.enc.Utf8);
-    // console.log("original text", originalText)
+    this.setState({
+      oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`,
+    });
   }
 
   handleChange = (e) => {
@@ -59,10 +53,20 @@ console.log(`${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`
             <Button variant="warning" type="submit">
               Encrypt
             </Button>
+            {this.state.oneTimeUrl && (
+              <div>
+                <p>
+                  This message will self destruct after reading it.
+                </p>
+                <div>
+                  {this.state.oneTimeUrl}
+                </div>
+              </div>
+            )}
           </Form>
         </div>
       </Container>
-    )
+    );
   }
 }
 
