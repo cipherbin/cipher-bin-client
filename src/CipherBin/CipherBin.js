@@ -1,13 +1,39 @@
 import React, { Component } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { AES } from 'crypto-js';
+import uuidv4 from 'uuid/v4';
+import axios from 'axios';
 
 class CipherBin extends Component {
-  state = { message: '' }
+  state = {
+    message: '',
+    error: null,
+    oneTimeUrl: null,
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send to server
+    const encryptionKey = Math.random().toString(36).slice(-10);
+    const uuid = uuidv4();
+    const cipherText = AES.encrypt(this.state.message, encryptionKey).toString();
+    const payload = { uuid, message: cipherText };
+
+    try {
+      await axios.post('/msg', payload);
+    } catch (err) {
+      // TODO: airbrake and support email message
+      this.setState({ error: 'Sorry something went wrong!' });
+      return;
+    }
+
+    const oneTimeUrl = `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid}#${encryptionKey}`;
+
+    // Decrypt
+    // axios.get(`/msg?bin=${encryptionKey}#${uuid}`)
+    // const bytes  = AES.decrypt(cipherText, encryptionKey);
+    // const originalText = bytes.toString(CryptoJS.enc.Utf8);
+    // console.log("original text", originalText)
   }
 
   handleChange = (e) => {
@@ -19,7 +45,7 @@ class CipherBin extends Component {
       <Container>
         <div style={{ marginTop: '100px' }}>
           <h2>New Encrypted Message</h2>
-          <Form onClick={this.handleSubmit}>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="cipherbin.textarea">
               <Form.Control
                 as="textarea"
