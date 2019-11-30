@@ -27,7 +27,9 @@ class CipherBin extends Component {
       return;
     }
 
-    const oneTimeUrl = `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid}#${encryptionKey}`;
+    this.setState({
+      oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid}#${encryptionKey}`
+    });
 
     // Decrypt
     // axios.get(`/msg?bin=${encryptionKey}#${uuid}`)
