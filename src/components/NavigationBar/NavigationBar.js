@@ -23,12 +23,12 @@ const NavigationBar = ({ history }) => {
         </div>
         <div
           tabIndex="-1"
-          onClick={() => handleClick('/')}
-          onKeyPress={() => handleClick('/')}
+          onClick={() => handleClick('/how-it-works')}
+          onKeyPress={() => handleClick('/how-it-works')}
           role="button"
-          className="new"
+          className="links"
         >
-          New
+          How does it work?
         </div>
       </Container>
     </div>

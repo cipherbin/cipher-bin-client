@@ -13,6 +13,7 @@
     height: 70px;
     text-align: center;
     width: 150px;
+    color: white;
 }
 
 .nav-bar-container {
@@ -20,13 +21,10 @@
     justify-content: space-between;
 }
 
-.new {
-    display: flex;
-    width: 70px;
+.links {
     cursor: pointer;
-    font-size: 25px;
-    height: 70px;
-    text-align: center;
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    color: white;
 }

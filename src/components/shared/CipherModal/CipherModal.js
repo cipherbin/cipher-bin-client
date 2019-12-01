@@ -25,7 +25,7 @@ const CipherModal = ({
       {body}
     </Modal.Body>
     <Modal.Footer>
-      <Button onClick={close}>
+      <Button onClick={close} size="md" variant="danger">
         {buttonTxt}
       </Button>
     </Modal.Footer>

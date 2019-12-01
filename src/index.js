@@ -6,6 +6,7 @@ import App from './App';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import CipherBinRead from './components/CipherBinRead/CipherBinRead';
 import FourOhFour from './components/FourOhFour/FourOhFour';
+import HowItWorks from './components/HowItWorks/HowItWorks';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,6 +19,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/" component={App} exact />
       <Route path="/msg" component={CipherBinRead} exact />
+      <Route path="/how-it-works" component={HowItWorks} exact />
       <Route component={FourOhFour} />
     </Switch>
   </Router>,

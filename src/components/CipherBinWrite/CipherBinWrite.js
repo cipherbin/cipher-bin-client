@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { Container, Form, Button, Spinner } from 'react-bootstrap';
+import {
+  Container,
+  Form,
+  Button,
+  Spinner,
+  Badge,
+} from 'react-bootstrap';
 import { AES } from 'crypto-js';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CipherModal from '../shared/CipherModal/CipherModal';
 import CipherAlert from '../shared/CipherAlert/CipherAlert';
+import SelectAllInput from '../shared/SelectAllInput/SelectAllInput';
 import './CipherBinWrite.css';
 
 class CipherBinWrite extends Component {
@@ -14,6 +22,7 @@ class CipherBinWrite extends Component {
     showModal: false,
     error: null,
     isLoading: false,
+    copied: false,
   };
 
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -40,6 +49,7 @@ class CipherBinWrite extends Component {
       oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`,
       showModal: true,
       error: false,
+      copied: false,
     });
   }
 
@@ -61,11 +71,18 @@ class CipherBinWrite extends Component {
           showModal: false,
           error: null,
           isLoading: false,
+          copied: false,
         };
       }
 
       return { showModal: true };
     });
+  }
+
+  copyToClipboard = async () => {
+    this.setState({ copied: true });
+    await this.sleep(500);
+    this.setState({ copied: false });
   }
 
   render() {
@@ -85,11 +102,19 @@ class CipherBinWrite extends Component {
           heading="One Time Use URL"
           body={(
             <>
-              <div>
+              <div className="one-time-warning">
                 Warning! This message will self destruct after reading it.
               </div>
-              <div>
-                {this.state.oneTimeUrl}
+              <div className="one-time-url-wrapper">
+                <SelectAllInput value={this.state.oneTimeUrl} />
+                <CopyToClipboard
+                  text={this.state.oneTimeUrl}
+                  onCopy={this.copyToClipboard}
+                >
+                  <Badge variant="info" className="badge">
+                    {this.state.copied ? 'Copied.' : 'Copy'}
+                  </Badge>
+                </CopyToClipboard>
               </div>
             </>
           )}
@@ -110,9 +135,9 @@ class CipherBinWrite extends Component {
             </Form.Group>
             <div>
               <Button
-                variant="warning"
+                variant="primary"
                 type="submit"
-                disabled={this.state.isLoading}
+                disabled={this.state.isLoading || this.state.message === ''}
                 size="lg"
                 block
               >

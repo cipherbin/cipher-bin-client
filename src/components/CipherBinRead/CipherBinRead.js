@@ -6,6 +6,7 @@ import CryptoJS, { AES } from 'crypto-js';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import CipherAlert from '../shared/CipherAlert/CipherAlert';
+import './CipherBinRead.css';
 
 class CipherBinRead extends Component {
   state = {
@@ -17,7 +18,7 @@ class CipherBinRead extends Component {
     const values = queryString.parse(this.props.location.search).bin;
 
     if (!values) {
-      this.setState({ error: 'Sorry, this seems to be an invalid link' });
+      this.setState({ error: 'Sorry, this message has already been read and was destroyed' });
       return;
     }
 
@@ -33,7 +34,6 @@ class CipherBinRead extends Component {
     try {
       res = await axios.get(`/msg?bin=${uuid}`);
     } catch (err) {
-      // TODO: airbrake and support email message
       this.setState({ error: 'Sorry something went wrong!' });
       return;
     }
@@ -41,6 +41,8 @@ class CipherBinRead extends Component {
     const message = this.decrypt(res.data.message, encryptionKey);
 
     this.setState({ message });
+
+    this.props.history.replace('/msg');
   }
 
   decrypt = (message, encryptionKey) => {
@@ -58,13 +60,16 @@ class CipherBinRead extends Component {
           show={!!this.state.error}
           variant="danger"
         />
-        <div style={{ marginTop: '100px' }}>
-          Read Your Message
-        </div>
         {this.state.message && (
-          <div style={{ marginTop: '100px' }}>
-            {this.state.message}
-          </div>
+          <>
+            <div className="warning-message">
+              This message was destroyed. If you need to keep it,
+              copy it&#39;s contents before navigating away.
+            </div>
+            <div className="message-wrapper">
+              {this.state.message}
+            </div>
+          </>
         )}
       </Container>
     );
@@ -74,6 +79,9 @@ class CipherBinRead extends Component {
 export default withRouter(CipherBinRead);
 
 CipherBinRead.propTypes = {
+  history: PropTypes.shape({
+    replace: PropTypes.func,
+  }).isRequired,
   location: PropTypes.shape({
     search: PropTypes.string,
   }).isRequired,
