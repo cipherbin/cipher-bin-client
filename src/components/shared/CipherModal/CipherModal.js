@@ -13,6 +13,7 @@ const CipherModal = ({
     show={show}
     size="lg"
     aria-labelledby="contained-modal-title-vcenter"
+    onHide={close}
     centered
   >
     <Modal.Header closeButton>
@@ -21,10 +22,7 @@ const CipherModal = ({
       </Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <h4>Centered Modal</h4>
-      <p>
-        {body}
-      </p>
+      {body}
     </Modal.Body>
     <Modal.Footer>
       <Button onClick={close}>
@@ -41,7 +39,7 @@ CipherModal.propTypes = {
   close: PropTypes.func.isRequired,
   buttonTxt: PropTypes.string,
   heading: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body: PropTypes.node.isRequired,
 };
 
 CipherModal.defaultProps = {

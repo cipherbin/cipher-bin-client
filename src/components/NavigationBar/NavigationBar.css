@@ -14,3 +14,19 @@
     text-align: center;
     width: 150px;
 }
+
+.nav-bar-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new {
+    display: flex;
+    width: 70px;
+    cursor: pointer;
+    font-size: 25px;
+    height: 70px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

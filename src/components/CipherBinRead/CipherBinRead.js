@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import CryptoJS, { AES } from 'crypto-js';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import CipherAlert from '../shared/CipherAlert/CipherAlert';
 
 class CipherBinRead extends Component {
   state = {
@@ -51,6 +52,12 @@ class CipherBinRead extends Component {
   render() {
     return (
       <Container>
+        <CipherAlert
+          key={this.state.error}
+          message={this.state.error}
+          show={!!this.state.error}
+          variant="danger"
+        />
         <div style={{ marginTop: '100px' }}>
           Read Your Message
         </div>

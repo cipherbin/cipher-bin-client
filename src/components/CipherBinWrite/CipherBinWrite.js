@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button, Spinner } from 'react-bootstrap';
 import { AES } from 'crypto-js';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 import CipherModal from '../shared/CipherModal/CipherModal';
+import CipherAlert from '../shared/CipherAlert/CipherAlert';
 import './CipherBinWrite.css';
 
 class CipherBinWrite extends Component {
@@ -12,7 +13,10 @@ class CipherBinWrite extends Component {
     oneTimeUrl: null,
     showModal: false,
     error: null,
+    isLoading: false,
   };
+
+  sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,10 +34,18 @@ class CipherBinWrite extends Component {
       return;
     }
 
+    await this.emulateProcessing();
+
     this.setState({
       oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`,
       showModal: true,
+      error: false,
     });
+  }
+
+  emulateProcessing = async () => {
+    this.setState({ isLoading: true });
+    await this.sleep(1000);
   }
 
   handleChange = (e) => {
@@ -41,20 +53,46 @@ class CipherBinWrite extends Component {
   }
 
   toggleModal = () => {
-    this.setState((prevState) => ({
-      showModal: !prevState.showModal,
-    }));
+    this.setState((prevState) => {
+      if (prevState.showModal) {
+        return {
+          message: '',
+          oneTimeUrl: null,
+          showModal: false,
+          error: null,
+          isLoading: false,
+        };
+      }
+
+      return { showModal: true };
+    });
   }
 
   render() {
     return (
       <Container>
+        <CipherAlert
+          key={this.state.error}
+          message={this.state.error || ''}
+          show={!!this.state.error}
+          variant="danger"
+        />
         <CipherModal
+          key={this.state.showModal}
           show={this.state.showModal}
           close={this.toggleModal}
           buttonTxt="I understand"
-          heading="Heading"
-          body="This is the body"
+          heading="One Time Use URL"
+          body={(
+            <>
+              <div>
+                Warning! This message will self destruct after reading it.
+              </div>
+              <div>
+                {this.state.oneTimeUrl}
+              </div>
+            </>
+          )}
         />
         <div className="cipher-bin-write-wrapper">
           <p className="new-message">
@@ -67,21 +105,27 @@ class CipherBinWrite extends Component {
                 rows="10"
                 placeholder="Type your message here..."
                 onChange={this.handleChange}
+                value={this.state.message}
               />
             </Form.Group>
-            <Button variant="warning" type="submit">
-              Encrypt
-            </Button>
-            {this.state.oneTimeUrl && (
-              <div className="one-time-url-wrapper">
-                <p>
-                  This message will self destruct after reading it.
-                </p>
-                <div>
-                  {this.state.oneTimeUrl}
-                </div>
-              </div>
-            )}
+            <div>
+              <Button
+                variant="warning"
+                type="submit"
+                disabled={this.state.isLoading}
+                size="lg"
+                block
+              >
+                {this.state.isLoading ? (
+                  <>
+                    <Spinner animation="border" role="status" />
+                    <span style={{ marginLeft: '10px' }}>
+                      Processing...
+                    </span>
+                  </>
+                ) : 'Encrypt'}
+              </Button>
+            </div>
           </Form>
         </div>
       </Container>
