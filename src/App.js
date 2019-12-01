@@ -1,5 +1,5 @@
 import React from 'react';
-import CipherBinWrite from './CipherBinWrite/CipherBinWrite';
+import CipherBinWrite from './components/CipherBinWrite/CipherBinWrite';
 import './App.css';
 
 function App() {

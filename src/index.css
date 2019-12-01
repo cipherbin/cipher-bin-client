@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
-
 body {
   margin: 0;
-  font-family: 'Fira Code', monospace;
+  font-family: 'Fira Code', monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Fira Code",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Fira Code", monospace !important;
 }

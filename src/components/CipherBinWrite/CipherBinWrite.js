@@ -3,11 +3,14 @@ import { Container, Form, Button } from 'react-bootstrap';
 import { AES } from 'crypto-js';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
+import CipherModal from '../shared/CipherModal/CipherModal';
+import './CipherBinWrite.css';
 
 class CipherBinWrite extends Component {
   state = {
     message: '',
     oneTimeUrl: null,
+    showModal: false,
     error: null,
   };
 
@@ -29,6 +32,7 @@ class CipherBinWrite extends Component {
 
     this.setState({
       oneTimeUrl: `${process.env.REACT_APP_BASE_URL}/msg?bin=${uuid};${encryptionKey}`,
+      showModal: true,
     });
   }
 
@@ -36,11 +40,26 @@ class CipherBinWrite extends Component {
     this.setState({ message: e.target.value });
   }
 
+  toggleModal = () => {
+    this.setState((prevState) => ({
+      showModal: !prevState.showModal,
+    }));
+  }
+
   render() {
     return (
       <Container>
-        <div style={{ marginTop: '100px' }}>
-          <h2>New Encrypted Message</h2>
+        <CipherModal
+          show={this.state.showModal}
+          close={this.toggleModal}
+          buttonTxt="I understand"
+          heading="Heading"
+          body="This is the body"
+        />
+        <div className="cipher-bin-write-wrapper">
+          <p className="new-message">
+            New Encrypted Message
+          </p>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="cipherbin.textarea">
               <Form.Control
@@ -54,7 +73,7 @@ class CipherBinWrite extends Component {
               Encrypt
             </Button>
             {this.state.oneTimeUrl && (
-              <div>
+              <div className="one-time-url-wrapper">
                 <p>
                   This message will self destruct after reading it.
                 </p>
