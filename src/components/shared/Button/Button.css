@@ -8,11 +8,12 @@
   align-items: center;
   width: fit-content;
   height: 40px;
-  padding: 0 10px 0 10px
+  padding: 0 10px 0 10px;
 }
 
 .cipher-button span {
   font-size: 16px;
+  color: white;
 }
 
 .cipher-button:hover {
