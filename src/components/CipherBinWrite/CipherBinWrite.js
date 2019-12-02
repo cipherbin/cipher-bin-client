@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Container,
   Form,
-  Button,
   Spinner,
   Badge,
 } from 'react-bootstrap';
@@ -13,6 +12,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CipherModal from '../shared/CipherModal/CipherModal';
 import CipherAlert from '../shared/CipherAlert/CipherAlert';
 import SelectAllInput from '../shared/SelectAllInput/SelectAllInput';
+import Button from '../shared/Button/Button';
 import './CipherBinWrite.css';
 
 class CipherBinWrite extends Component {
@@ -123,7 +123,7 @@ class CipherBinWrite extends Component {
           <p className="new-message">
             New Encrypted Message
           </p>
-          <Form onSubmit={this.handleSubmit}>
+          <Form>
             <Form.Group controlId="cipherbin.textarea">
               <Form.Control
                 as="textarea"
@@ -135,11 +135,9 @@ class CipherBinWrite extends Component {
             </Form.Group>
             <div>
               <Button
-                variant="primary"
-                type="submit"
+                text="Encrypt"
+                onClick={this.handleSubmit}
                 disabled={this.state.isLoading || this.state.message === ''}
-                size="lg"
-                block
               >
                 {this.state.isLoading ? (
                   <>

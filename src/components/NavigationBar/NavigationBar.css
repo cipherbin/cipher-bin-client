@@ -16,6 +16,10 @@
     color: white;
 }
 
+.brand:hover {
+    color: black;
+}
+
 .nav-bar-container {
     display: flex;
     justify-content: space-between;
@@ -27,4 +31,8 @@
     align-items: center;
     justify-content: center;
     color: white;
+}
+
+.links:hover {
+    color: black;
 }

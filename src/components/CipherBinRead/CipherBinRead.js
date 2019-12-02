@@ -6,6 +6,7 @@ import CryptoJS, { AES } from 'crypto-js';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import CipherAlert from '../shared/CipherAlert/CipherAlert';
+import Button from '../shared/Button/Button';
 import './CipherBinRead.css';
 
 class CipherBinRead extends Component {
@@ -49,7 +50,6 @@ class CipherBinRead extends Component {
     const message = this.decrypt(res.data.message, encryptionKey);
 
     this.setState({ message });
-
     this.props.history.replace('/msg');
   }
 
@@ -57,6 +57,10 @@ class CipherBinRead extends Component {
     const bytes = AES.decrypt(message, encryptionKey);
     const originalText = bytes.toString(CryptoJS.enc.Utf8);
     return originalText;
+  }
+
+  createYourOwn = () => {
+    this.props.history.push('/');
   }
 
   render() {
@@ -79,6 +83,12 @@ class CipherBinRead extends Component {
             </div>
           </>
         )}
+        <div className="buttons">
+          <Button
+            text="Create your own"
+            onClick={this.createYourOwn}
+          />
+        </div>
       </Container>
     );
   }
@@ -89,6 +99,7 @@ export default withRouter(CipherBinRead);
 CipherBinRead.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func,
+    push: PropTypes.func,
   }).isRequired,
   location: PropTypes.shape({
     search: PropTypes.string,

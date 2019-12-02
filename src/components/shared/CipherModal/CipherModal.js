@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+import Button from '../Button/Button';
 
 const CipherModal = ({
   show,
@@ -25,9 +26,7 @@ const CipherModal = ({
       {body}
     </Modal.Body>
     <Modal.Footer>
-      <Button onClick={close} size="md" variant="danger">
-        {buttonTxt}
-      </Button>
+      <Button onClick={close} text={buttonTxt} />
     </Modal.Footer>
   </Modal>
 );
