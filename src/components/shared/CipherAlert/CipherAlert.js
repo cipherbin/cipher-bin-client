@@ -12,7 +12,7 @@ const CipherAlert = ({
 
   return (
     <Alert
-      style={{ marginTop: '100px' }}
+      style={{ marginTop: '20px' }}
       show={alertShown}
       variant={variant}
       onClose={() => showAlert(false)}

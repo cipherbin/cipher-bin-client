@@ -34,7 +34,15 @@ class CipherBinRead extends Component {
     try {
       res = await axios.get(`/msg?bin=${uuid}`);
     } catch (err) {
-      this.setState({ error: 'Sorry something went wrong!' });
+      if (err.response && err.response.data && err.response.data.message) {
+        this.setState({ error: err.response.data.message });
+        this.props.history.replace('/msg');
+        return;
+      }
+
+      this.setState({ error: 'Sorry, there was an error!' });
+      this.props.history.replace('/msg');
+
       return;
     }
 
