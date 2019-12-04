@@ -33,8 +33,8 @@ const HowItWorks = () => (
       <p>
         When someone visits the link cipherb.in makes a request for the encrypted
         message using it&#39;s uuid. Our servers return the message and immediately
-        destroy it. When the message is loaded on the client, your browser uses the
-        passphrase to decrypt the message, rendering it in plain text. If you
+        destroy it. When your browser receives the message, it uses the passphrase
+        from the URL to decrypt the message, rendering it in plain text. If you
         navigate away, refresh, visit the link again, etc you will see an error
         explaining that the message has already been read and destroyed.
       </p>
