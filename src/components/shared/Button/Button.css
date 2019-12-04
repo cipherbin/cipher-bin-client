@@ -9,11 +9,9 @@
   height: 40px;
   padding: 0 10px 0 10px;
   border: 1px solid #80808026;
-}
-
-.cipher-button {
   font-size: 16px;
   color: white;
+  margin-bottom: 170px;
 }
 
 .cipher-button:hover {

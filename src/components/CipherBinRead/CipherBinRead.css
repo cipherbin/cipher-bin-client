@@ -8,6 +8,8 @@
   margin-top: 25px;
   white-space: pre-wrap;
   border-radius: 4px;
+  font-family: 'Fira Code';
+  font-size: 17px;
 }
 
 .warning-message {
@@ -15,6 +17,7 @@
   margin: 0 auto;
   max-width: 500px;
   margin-top: 30px;
+  font-size: 18px;
 }
 
 .buttons {

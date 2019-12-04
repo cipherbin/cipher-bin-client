@@ -1,11 +1,15 @@
 body {
   background-color: #ececec !important;
   margin: 0;
-  font-family: 'Fira Code', monospace !important;
+  font-family: 'Catamaran', monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Fira Code", monospace !important;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Catamaran', monospace !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Catamaran', monospace !important;
 }

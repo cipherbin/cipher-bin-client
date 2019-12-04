@@ -7,9 +7,9 @@ const HowItWorks = () => (
     <div className="how-it-works-wrapper">
       <h3>How it works</h3>
       <p>
-        cipherb.in is a free message encryption service that allows you to create messages that
-        can only be read once before they&#39;re destroyed. No one other than you and the
-        recipient can read the message. This includes cipherb.in!
+        cipherb.in is a free and open source message encryption service that allows you
+        to create messages that can only be read once before they&#39;re destroyed. No one
+        other than you and the recipient can read the message. This includes cipherb.in!
       </p>
       <p>
         Type in your message and click &quot;encrypt&quot;. We provide you with a one time use
@@ -17,7 +17,7 @@ const HowItWorks = () => (
         Now&quot;, it is destroyed.
       </p>
       <hr />
-      <h3>Technically how it works</h3>
+      <h3>Under the hood</h3>
       <p>
         The message is encrypted with Javascript in your browser using 256 bit AES
         encryption. AES allows us to use a passphrase for encrypting content. cipherb.in
