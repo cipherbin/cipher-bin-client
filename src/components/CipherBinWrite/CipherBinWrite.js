@@ -56,6 +56,10 @@ class CipherBinWrite extends Component {
   emulateProcessing = async () => {
     this.setState({ isLoading: true });
     await this.sleep(1000);
+    this.setState({
+      isLoading: false,
+      message: '',
+    });
   }
 
   handleChange = (e) => {
@@ -140,12 +144,7 @@ class CipherBinWrite extends Component {
                 disabled={this.state.isLoading || this.state.message === ''}
               >
                 {this.state.isLoading ? (
-                  <>
-                    <Spinner animation="border" role="status" />
-                    <span style={{ marginLeft: '10px' }}>
-                      Processing...
-                    </span>
-                  </>
+                  <Spinner animation="border" role="status" variant="light" />
                 ) : 'Encrypt'}
               </Button>
             </div>

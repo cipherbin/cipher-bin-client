@@ -7,6 +7,7 @@ const Button = ({
   text,
   style,
   disabled,
+  children,
 }) => (
   <div
     className={`cipher-button ${disabled ? 'disabled' : ''}`}
@@ -17,7 +18,7 @@ const Button = ({
     style={style}
     disabled={disabled}
   >
-    <span>{text}</span>
+    {!children ? <span>{text}</span> : children}
   </div>
 );
 
@@ -28,10 +29,12 @@ Button.propTypes = {
   text: PropTypes.string,
   style: PropTypes.shape({}),
   disabled: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 Button.defaultProps = {
   text: 'Submit',
   style: {},
   disabled: false,
+  children: null,
 };

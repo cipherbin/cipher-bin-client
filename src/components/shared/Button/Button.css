@@ -2,16 +2,16 @@
   background-color: #68a1fc;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 1px 2px 8px 1px rgba(0,0,0,0.14);
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.14);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
   height: 40px;
   padding: 0 10px 0 10px;
+  border: 1px solid #80808026;
 }
 
-.cipher-button span {
+.cipher-button {
   font-size: 16px;
   color: white;
 }

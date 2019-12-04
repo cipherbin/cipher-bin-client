@@ -16,11 +16,16 @@
     max-width: 990px;
 }
 
+.cipher-bin-write-wrapper textarea {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.14);
+}
+
 .badge {
     font-size: 13px !important;
     cursor: pointer;
     height: 22px;
     width: 65px;
+    line-height: 1.2;
 }
 
 .badge:hover {
