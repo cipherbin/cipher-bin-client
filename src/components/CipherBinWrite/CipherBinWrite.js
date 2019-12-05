@@ -137,7 +137,7 @@ class CipherBinWrite extends Component {
                 value={this.state.message}
               />
             </Form.Group>
-            <div>
+            <div className="button-wrapper">
               <Button
                 text="Encrypt"
                 onClick={this.handleSubmit}

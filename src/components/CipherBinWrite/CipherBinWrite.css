@@ -53,3 +53,8 @@
     margin: 0 0 10px 0;
     align-items: center;
 }
+
+.button-wrapper {
+    width: 230px;
+    margin: 0 auto;
+}
