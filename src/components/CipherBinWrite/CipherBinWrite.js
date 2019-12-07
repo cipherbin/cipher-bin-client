@@ -55,7 +55,7 @@ class CipherBinWrite extends Component {
 
   emulateProcessing = async () => {
     this.setState({ isLoading: true });
-    await this.sleep(1000);
+    await this.sleep(850);
     this.setState({
       isLoading: false,
       message: '',
