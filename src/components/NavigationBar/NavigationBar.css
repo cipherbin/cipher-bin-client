@@ -1,39 +1,39 @@
 .nav-bar-wrapper {
-    background-color: #68a1fc;
-    box-shadow: 1px 1px 4px 2px #888888;
-    height: 70px;
-    width: 100%;
+  background-color: #68a1fc;
+  box-shadow: 1px 1px 4px 2px #888888;
+  height: 70px;
+  width: 100%;
 }
 
 .brand {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    font-size: 25px;
-    height: 70px;
-    text-align: center;
-    width: 150px;
-    color: white;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 25px;
+  height: 70px;
+  text-align: center;
+  width: 150px;
+  color: white;
 }
 
 .brand:hover {
-    color: black;
+  color: black;
 }
 
 .nav-bar-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .links {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 17px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 17px;
 }
 
 .links:hover {
-    color: black;
+  color: black;
 }

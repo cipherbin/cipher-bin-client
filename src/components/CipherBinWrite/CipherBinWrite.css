@@ -1,60 +1,60 @@
 .new-message {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .one-time-url-wrapper {
-    padding: 20px;
-    height: 100px;
-    border-radius: 4px;
-    margin-top: 50px;
-    background-color: #FFFFFF;
+  padding: 20px;
+  height: 100px;
+  border-radius: 4px;
+  margin-top: 50px;
+  background-color: #FFFFFF;
 }
 
 .cipher-bin-write-wrapper {
-    margin: 0 auto;
-    margin-top: 25px;
-    max-width: 990px;
+  margin: 0 auto;
+  margin-top: 25px;
+  max-width: 990px;
 }
 
 .cipher-bin-write-wrapper textarea {
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.14);
-    font-size: 18px;
-    font-family: 'Fira Code';
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.14);
+  font-size: 18px;
+  font-family: 'Fira Code';
 }
 
 .badge {
-    font-size: 13px !important;
-    cursor: pointer;
-    height: 22px;
-    width: 65px;
-    line-height: 1.4 !important;
+  font-size: 13px !important;
+  cursor: pointer;
+  height: 22px;
+  width: 65px;
+  line-height: 1.4 !important;
 }
 
 .badge:hover {
-    background-color: #5ad7ea;
+  background-color: #5ad7ea;
 }
 
 .one-time-warning {
-    margin-bottom: 20px;
-    font-size: 18px;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .one-time-url-box {
-    width: 85%;
+  width: 85%;
 }
 
 .one-time-url-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    height: 35px;
-    align-items: center;
-    padding: 0;
-    margin: 0 0 10px 0;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 35px;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 10px 0;
+  align-items: center;
 }
 
 .button-wrapper {
-    width: 230px;
-    margin: 0 auto;
+  width: 230px;
+  margin: 0 auto;
 }
