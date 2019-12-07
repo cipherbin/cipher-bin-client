@@ -19,7 +19,7 @@ class CipherBinRead extends Component {
     const values = queryString.parse(this.props.location.search).bin;
 
     if (!values) {
-      this.setState({ error: 'Sorry, this message has already been read and was destroyed' });
+      this.setState({ error: 'Sorry, this seems to be an invalid link' });
       return;
     }
 

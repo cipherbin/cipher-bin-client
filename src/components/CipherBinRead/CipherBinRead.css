@@ -10,6 +10,7 @@
   border-radius: 4px;
   font-family: 'Fira Code';
   font-size: 17px;
+  word-break: break-word;
 }
 
 .warning-message {
