@@ -32,8 +32,49 @@
   justify-content: center;
   color: white;
   font-size: 17px;
+  padding-left: 10px;
 }
 
 .links:hover {
-  color: black;
+  color: rgb(68, 68, 68);;
+}
+
+.links:active {
+  color: rgb(48, 48, 48);;
+}
+
+.nav-right-side {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.github-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.github-logo {
+  height: 35px;
+  width: 35px;
+  margin-left: 70px;
+  margin-bottom: 1px;
+}
+
+.cipher-bin-logo {
+  height: 40px;
+  width: 160px;
+  border: 1px solid #ececec;
+  background-color: rgb(68, 68, 68);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.14);
+}
+
+.cipher-bin-logo:hover {
+  background-color: rgb(94, 94, 94);
+}
+
+.cipher-bin-logo:active {
+  background-color: rgb(68, 68, 68);
 }
