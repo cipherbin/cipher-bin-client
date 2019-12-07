@@ -78,3 +78,15 @@
 .cipher-bin-logo:active {
   background-color: rgb(68, 68, 68);
 }
+
+@media only screen and (max-width: 768px) {
+  .github-logo {
+    margin-left: 25px;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .github-logo {
+    margin-left: 15px;
+  }
+}
