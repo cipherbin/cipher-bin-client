@@ -36,7 +36,12 @@ class CipherBinWrite extends Component {
     const payload = { uuid, message: cipherText };
 
     try {
-      await axios.post('/msg', payload);
+      await axios({
+        method: 'POST',
+        url: '/msg',
+        data: payload,
+        headers: { 'Content-Type': 'application/json' },
+      });
     } catch (err) {
       // TODO: airbrake and support email message
       this.setState({ error: 'Sorry something went wrong!' });
