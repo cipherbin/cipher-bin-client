@@ -4,6 +4,8 @@ import {
   Form,
   Spinner,
   Badge,
+  Col,
+  Row,
 } from 'react-bootstrap';
 import { AES } from 'crypto-js';
 import uuidv4 from 'uuid/v4';
@@ -18,11 +20,14 @@ import './CipherBinWrite.css';
 class CipherBinWrite extends Component {
   state = {
     message: '',
+    email: '',
+    referenceName: '',
     oneTimeUrl: null,
     showModal: false,
     error: null,
     isLoading: false,
     copied: false,
+    showOptions: false,
   };
 
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -30,10 +35,16 @@ class CipherBinWrite extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
 
+    const { email, referenceName } = this.state;
     const encryptionKey = Math.random().toString(36).slice(-10);
     const uuid = uuidv4();
     const cipherText = AES.encrypt(this.state.message, encryptionKey).toString();
-    const payload = { uuid, message: cipherText };
+    const payload = {
+      uuid,
+      email,
+      reference_name: referenceName,
+      message: cipherText,
+    };
 
     try {
       await axios({
@@ -67,8 +78,16 @@ class CipherBinWrite extends Component {
     });
   }
 
-  handleChange = (e) => {
+  handleMsgChange = (e) => {
     this.setState({ message: e.target.value });
+  }
+
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value });
+  }
+
+  handleNameChange = (e) => {
+    this.setState({ referenceName: e.target.value });
   }
 
   toggleModal = () => {
@@ -81,10 +100,29 @@ class CipherBinWrite extends Component {
           error: null,
           isLoading: false,
           copied: false,
+          showOptions: false,
         };
       }
 
       return { showModal: true };
+    });
+  }
+
+  toggleOptions = () => {
+    this.setState((prevState) => {
+      if (prevState.showOptions) {
+        return {
+          ...prevState,
+          email: '',
+          referenceName: '',
+          showOptions: false,
+        };
+      }
+
+      return {
+        ...prevState,
+        showOptions: true,
+      };
     });
   }
 
@@ -134,14 +172,52 @@ class CipherBinWrite extends Component {
           </p>
           <Form>
             <Form.Group controlId="cipherbin.textarea">
+              <Form.Label style={{ color: '#ececec', margin: '0px', padding: '0px' }}>
+                Encrypted Message Text Area
+              </Form.Label>
               <Form.Control
                 as="textarea"
                 rows="10"
                 placeholder="Type your message here..."
-                onChange={this.handleChange}
+                onChange={this.handleMsgChange}
                 value={this.state.message}
               />
             </Form.Group>
+            <div className="options-checkbox">
+              <label htmlFor="options-check">
+                <input
+                  type="checkbox"
+                  name="options"
+                  onClick={this.toggleOptions}
+                  id="options-check"
+                />
+                &nbsp;&nbsp;Display additional options?
+              </label>
+            </div>
+            {this.state.showOptions && (
+              <div className="options-wrapper">
+                <Form.Group controlId="cipherbin.email">
+                  <Row>
+                    <Col>
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="johndoe@gmail.com"
+                        onChange={this.handleEmailChange}
+                      />
+                    </Col>
+                    <Col>
+                      <Form.Label>Reference Name</Form.Label>
+                      <Form.Control
+                        type="input"
+                        placeholder="Environment variables"
+                        onChange={this.handleNameChange}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+              </div>
+            )}
             <div className="button-wrapper">
               <Button
                 text="Encrypt"
