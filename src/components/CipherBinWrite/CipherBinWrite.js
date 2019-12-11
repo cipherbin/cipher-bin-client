@@ -190,6 +190,7 @@ class CipherBinWrite extends Component {
                   name="options"
                   onClick={this.toggleOptions}
                   id="options-check"
+                  checked={this.state.showOptions}
                 />
                 &nbsp;&nbsp;Display additional options?
               </label>
