@@ -200,13 +200,13 @@ class CipherBinWrite extends Component {
                 <Form.Group controlId="cipherbin.email">
                   <Row>
                     <h5 className="options-heading">
-                      Message Read &amp; Destoyed Receipt
+                      Receive a notification when your message is destroyed
                     </h5>
                   </Row>
                   <Row>
                     <Col>
                       <Form.Label>
-                        Email to send the receipt
+                        Email to send notification to
                       </Form.Label>
                       <Form.Control
                         type="email"
@@ -215,7 +215,9 @@ class CipherBinWrite extends Component {
                       />
                     </Col>
                     <Col>
-                      <Form.Label>Reference name for the message</Form.Label>
+                      <Form.Label>
+                        Reference name for this message
+                      </Form.Label>
                       <Form.Control
                         type="input"
                         placeholder="Environment variables"
