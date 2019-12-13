@@ -188,7 +188,7 @@ class CipherBinWrite extends Component {
                 <input
                   type="checkbox"
                   name="options"
-                  onClick={this.toggleOptions}
+                  onChange={this.toggleOptions}
                   id="options-check"
                   checked={this.state.showOptions}
                 />
