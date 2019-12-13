@@ -199,8 +199,15 @@ class CipherBinWrite extends Component {
               <div className="options-wrapper">
                 <Form.Group controlId="cipherbin.email">
                   <Row>
+                    <h5 className="options-heading">
+                      Message Read &amp; Destoyed Receipt
+                    </h5>
+                  </Row>
+                  <Row>
                     <Col>
-                      <Form.Label>Email address</Form.Label>
+                      <Form.Label>
+                        Email to send the receipt
+                      </Form.Label>
                       <Form.Control
                         type="email"
                         placeholder="johndoe@gmail.com"
@@ -208,7 +215,7 @@ class CipherBinWrite extends Component {
                       />
                     </Col>
                     <Col>
-                      <Form.Label>Reference Name</Form.Label>
+                      <Form.Label>Reference name for the message</Form.Label>
                       <Form.Control
                         type="input"
                         placeholder="Environment variables"

@@ -67,3 +67,12 @@
 .checkbox-label  input {
   cursor: pointer;
 }
+
+.options-heading {
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.options-checkbox {
+  margin-bottom: 25px;
+}
