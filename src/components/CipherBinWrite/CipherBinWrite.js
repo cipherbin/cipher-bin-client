@@ -184,7 +184,7 @@ class CipherBinWrite extends Component {
               />
             </Form.Group>
             <div className="options-checkbox">
-              <label htmlFor="options-check">
+              <label htmlFor="options-check" className="checkbox-label">
                 <input
                   type="checkbox"
                   name="options"

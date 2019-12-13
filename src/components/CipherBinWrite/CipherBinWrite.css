@@ -59,3 +59,11 @@
   width: 230px;
   margin: 0 auto;
 }
+
+.checkbox-label {
+  cursor: pointer;
+}
+
+.checkbox-label  input {
+  cursor: pointer;
+}
