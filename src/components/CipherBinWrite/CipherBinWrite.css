@@ -58,6 +58,7 @@
 .button-wrapper {
   width: 230px;
   margin: 0 auto;
+  margin-top: 35px;
 }
 
 .checkbox-label {
@@ -71,8 +72,5 @@
 .options-heading {
   font-weight: bold;
   margin-left: 15px;
-}
-
-.options-checkbox {
-  margin-bottom: 25px;
+  margin-top: 35px;
 }

@@ -26,6 +26,9 @@ const NavigationBar = ({ history }) => {
             src={cipherBinLogo}
             alt="Link to source code on Github"
           />
+          <span className="cipher-bin-brand-name">
+            cipherb.in
+          </span>
         </div>
         <div className="nav-right-side">
           <div

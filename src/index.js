@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import App from './App';
 import NavigationBar from './components/NavigationBar/NavigationBar';
-import Footer from './components/Footer/Footer';
 import CipherBinRead from './components/CipherBinRead/CipherBinRead';
 import FourOhFour from './components/FourOhFour/FourOhFour';
 import HowItWorks from './components/HowItWorks/HowItWorks';
@@ -23,7 +22,6 @@ ReactDOM.render(
       <Route path="/how-it-works" component={HowItWorks} exact />
       <Route component={FourOhFour} />
     </Switch>
-    <Footer />
   </Router>,
   document.getElementById('root'),
 );

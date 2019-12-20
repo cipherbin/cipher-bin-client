@@ -28,6 +28,7 @@ class CipherBinWrite extends Component {
     isLoading: false,
     copied: false,
     showOptions: false,
+    password: null,
   };
 
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -88,6 +89,10 @@ class CipherBinWrite extends Component {
 
   handleNameChange = (e) => {
     this.setState({ referenceName: e.target.value });
+  }
+
+  handlePasswordChange = (e) => {
+    this.setState({ password: e.target.value });
   }
 
   toggleModal = () => {
@@ -183,7 +188,7 @@ class CipherBinWrite extends Component {
                 value={this.state.message}
               />
             </Form.Group>
-            <div className="options-checkbox">
+            <div>
               <label htmlFor="options-check" className="checkbox-label">
                 <input
                   type="checkbox"
@@ -197,7 +202,7 @@ class CipherBinWrite extends Component {
             </div>
             {this.state.showOptions && (
               <div className="options-wrapper">
-                <Form.Group controlId="cipherbin.email">
+                <Form.Group>
                   <Row>
                     <h5 className="options-heading">
                       Receive a notification when your message is destroyed
@@ -222,6 +227,23 @@ class CipherBinWrite extends Component {
                         type="input"
                         placeholder="Environment variables"
                         onChange={this.handleNameChange}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <h5 className="options-heading">
+                      Create your own password for encryption
+                    </h5>
+                  </Row>
+                  <Row>
+                    <Col sm={6}>
+                      <Form.Label>
+                        Password
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="some_super_secret_123_abc"
+                        onChange={this.handlePasswordChange}
                       />
                     </Col>
                   </Row>

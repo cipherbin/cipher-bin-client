@@ -64,16 +64,16 @@
 
 .cipher-bin-logo {
   height: 40px;
-  width: 160px;
+  width: 40px;
 }
 
-.cipher-bin-logo:hover {
-  background-color: rgb(100, 100, 100);
+.brand:hover {
+  color: rgb(68, 68, 68);
   border-radius: 5px;
 }
 
-.cipher-bin-logo:active {
-  background-color: rgb(80, 80, 80);
+.brand:active {
+  color: rgb(58, 58, 58);
   border-radius: 5px;
 }
 
