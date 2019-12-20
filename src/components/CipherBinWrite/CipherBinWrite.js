@@ -230,7 +230,7 @@ class CipherBinWrite extends Component {
                       />
                     </Col>
                   </Row>
-                  <Row>
+                  {/* <Row>
                     <h5 className="options-heading">
                       Create your own password for encryption
                     </h5>
@@ -246,7 +246,7 @@ class CipherBinWrite extends Component {
                         onChange={this.handlePasswordChange}
                       />
                     </Col>
-                  </Row>
+                  </Row> */}
                 </Form.Group>
               </div>
             )}
