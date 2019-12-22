@@ -36,7 +36,7 @@ class CipherBinWrite extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { email, referenceName } = this.state;
+    const { email, referenceName, password } = this.state;
     const encryptionKey = Math.random().toString(36).slice(-10);
     const uuid = uuidv4();
     const cipherText = AES.encrypt(this.state.message, encryptionKey).toString();
@@ -45,6 +45,7 @@ class CipherBinWrite extends Component {
       email,
       reference_name: referenceName,
       message: cipherText,
+      ...(password) && { password },
     };
 
     try {
@@ -55,7 +56,6 @@ class CipherBinWrite extends Component {
         headers: { 'Content-Type': 'application/json' },
       });
     } catch (err) {
-      // TODO: airbrake and support email message
       this.setState({ error: 'Sorry something went wrong!' });
       return;
     }
@@ -79,20 +79,8 @@ class CipherBinWrite extends Component {
     });
   }
 
-  handleMsgChange = (e) => {
-    this.setState({ message: e.target.value });
-  }
-
-  handleEmailChange = (e) => {
-    this.setState({ email: e.target.value });
-  }
-
-  handleNameChange = (e) => {
-    this.setState({ referenceName: e.target.value });
-  }
-
-  handlePasswordChange = (e) => {
-    this.setState({ password: e.target.value });
+  handleChange = (e, stateKey) => {
+    this.setState({ [stateKey]: e.target.value });
   }
 
   toggleModal = () => {
@@ -184,7 +172,7 @@ class CipherBinWrite extends Component {
                 as="textarea"
                 rows="10"
                 placeholder="Type your message here..."
-                onChange={this.handleMsgChange}
+                onChange={(e) => this.handleChange(e, 'message')}
                 value={this.state.message}
               />
             </Form.Group>
@@ -216,7 +204,7 @@ class CipherBinWrite extends Component {
                       <Form.Control
                         type="email"
                         placeholder="johndoe@gmail.com"
-                        onChange={this.handleEmailChange}
+                        onChange={(e) => this.handleChange(e, 'email')}
                       />
                     </Col>
                     <Col>
@@ -226,13 +214,13 @@ class CipherBinWrite extends Component {
                       <Form.Control
                         type="input"
                         placeholder="Environment variables"
-                        onChange={this.handleNameChange}
+                        onChange={(e) => this.handleChange(e, 'referenceName')}
                       />
                     </Col>
                   </Row>
                   {/* <Row>
                     <h5 className="options-heading">
-                      Create your own password for encryption
+                      Create a password as an additional security layer
                     </h5>
                   </Row>
                   <Row>
@@ -242,8 +230,8 @@ class CipherBinWrite extends Component {
                       </Form.Label>
                       <Form.Control
                         type="text"
-                        placeholder="some_super_secret_123_abc"
-                        onChange={this.handlePasswordChange}
+                        placeholder="secret_abc_123"
+                        onChange={(e) => this.handleChange(e, 'password')}
                       />
                     </Col>
                   </Row> */}
