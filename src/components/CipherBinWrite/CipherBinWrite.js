@@ -33,11 +33,22 @@ class CipherBinWrite extends Component {
 
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  randString = (len) => {
+    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let str = '';
+
+    for (let i = len; i > 0; i -= 1) {
+      str += charset[Math.floor(Math.random() * charset.length)];
+    }
+
+    return str;
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault();
 
     const { email, referenceName, password } = this.state;
-    const encryptionKey = Math.random().toString(36).slice(-10);
+    const encryptionKey = this.randString(32);
     const uuid = uuidv4();
     const cipherText = AES.encrypt(this.state.message, encryptionKey).toString();
     const payload = {
