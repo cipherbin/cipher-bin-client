@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 import queryString from 'query-string';
-import CryptoJS, { AES } from 'crypto-js';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import CipherAlert from '../shared/CipherAlert/CipherAlert';
 import Button from '../shared/Button/Button';
+import AES256 from '../../utils/aes256/aes256';
 import './CipherBinRead.css';
 
 class CipherBinRead extends Component {
@@ -47,16 +47,10 @@ class CipherBinRead extends Component {
       return;
     }
 
-    const message = this.decrypt(res.data.message, encryptionKey);
+    const message = AES256.decrypt(res.data.message, encryptionKey);
 
     this.setState({ message });
     this.props.history.replace('/msg');
-  }
-
-  decrypt = (message, encryptionKey) => {
-    const bytes = AES.decrypt(message, encryptionKey);
-    const originalText = bytes.toString(CryptoJS.enc.Utf8);
-    return originalText;
   }
 
   createYourOwn = () => {

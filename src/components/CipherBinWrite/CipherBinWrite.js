@@ -7,7 +7,6 @@ import {
   Col,
   Row,
 } from 'react-bootstrap';
-import { AES } from 'crypto-js';
 import uuidv4 from 'uuid/v4';
 import axios from 'axios';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -15,6 +14,7 @@ import CipherModal from '../shared/CipherModal/CipherModal';
 import CipherAlert from '../shared/CipherAlert/CipherAlert';
 import SelectAllInput from '../shared/SelectAllInput/SelectAllInput';
 import Button from '../shared/Button/Button';
+import AES256 from '../../utils/aes256/aes256';
 import './CipherBinWrite.css';
 
 class CipherBinWrite extends Component {
@@ -50,7 +50,7 @@ class CipherBinWrite extends Component {
     const { email, referenceName, password } = this.state;
     const encryptionKey = this.randString(32);
     const uuid = uuidv4();
-    const cipherText = AES.encrypt(this.state.message, encryptionKey).toString();
+    const cipherText = AES256.encrypt(this.state.message, encryptionKey);
     const payload = {
       uuid,
       email,
