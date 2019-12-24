@@ -1,63 +1,135 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
+import MediaQuery from 'react-responsive';
 import githubLogo from '../../github_logo_white.png';
 import cipherBinLogo from '../../cipher_bin_logo.png';
 import './NavigationBar.css';
 
-const NavigationBar = ({ history }) => {
-  const handleClick = (route) => {
-    history.push(route);
-  };
+class NavigationBar extends Component {
+  state = { hamburgerOpen: false };
 
-  return (
-    <div className="nav-bar-wrapper">
-      <Container className="nav-bar-container">
-        <div
-          tabIndex="0"
-          onClick={() => handleClick('/')}
-          onKeyPress={() => handleClick('/')}
-          role="button"
-          className="brand"
-        >
-          <img
-            className="cipher-bin-logo"
-            src={cipherBinLogo}
-            alt="Link to source code on Github"
-          />
-          <span className="cipher-bin-brand-name">
-            cipherb.in
-          </span>
-        </div>
-        <div className="nav-right-side">
+  handleClick = (route) => {
+    this.closeHamburger();
+    this.props.history.push(route);
+  }
+
+  toggleHamburger = () => {
+    this.setState((prevState) => ({
+      hamburgerOpen: !prevState.hamburgerOpen,
+    }));
+  }
+
+  closeHamburger = () => {
+    this.setState({ hamburgerOpen: false });
+  }
+  // const isDesktopOrLaptop = useMediaQuery({
+  //   query: '(min-device-width: 1224px)',
+  // });
+
+  // This keeps your state in sync with the opening/closing of the menu
+  // via the default means, e.g. clicking the X, pressing the ESC key etc.
+  handleStateChange = (state) => {
+    this.setState({ hamburgerOpen: state.hamburgerOpen });
+  }
+
+  render() {
+    return (
+      <div className="nav-bar-wrapper">
+        <Container className="nav-bar-container">
           <div
-            tabIndex="-1"
-            onClick={() => handleClick('/how-it-works')}
-            onKeyPress={() => handleClick('/how-it-works')}
+            tabIndex="0"
+            onClick={() => this.handleClick('/')}
+            onKeyPress={() => this.handleClick('/')}
             role="button"
-            className="links"
+            className="brand"
           >
-            How does it work?
+            <img
+              className="cipher-bin-logo"
+              src={cipherBinLogo}
+              alt="Link to source code on Github"
+            />
+            <span className="cipher-bin-brand-name">
+              cipherb.in
+            </span>
           </div>
-          <div className="github-wrapper">
-            <a
-              href="https://github.com/bradford-hamilton/cipher-bin-server"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                className="github-logo"
-                src={githubLogo}
-                alt="Link to source code on Github"
-              />
-            </a>
+          <div className="nav-right-side">
+            <MediaQuery minDeviceWidth={1224}>
+              <div
+                tabIndex="-1"
+                onClick={() => this.handleClick('/cli')}
+                onKeyPress={() => this.handleClick('/cli')}
+                role="button"
+                className="links"
+              >
+                CLI
+              </div>
+              <div
+                tabIndex="-1"
+                onClick={() => this.handleClick('/how-it-works')}
+                onKeyPress={() => this.handleClick('/how-it-works')}
+                role="button"
+                className="links"
+              >
+                How does it work?
+              </div>
+              <div className="github-wrapper">
+                <a
+                  href="https://github.com/bradford-hamilton/cipher-bin-server"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    className="github-logo"
+                    src={githubLogo}
+                    alt="Link to source code on Github"
+                  />
+                </a>
+              </div>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={1224}>
+              <Menu
+                right
+                isOpen={this.state.hamburgerOpen}
+                onStateChange={(state) => this.handleStateChange(state)}
+              >
+                <div
+                  tabIndex="-1"
+                  onClick={() => this.handleClick('/how-it-works')}
+                  onKeyPress={() => this.handleClick('/how-it-works')}
+                  role="button"
+                  className="hamburger-links"
+                >
+                  How does it work?
+                </div>
+                <div
+                  tabIndex="-1"
+                  onClick={() => this.handleClick('/cli')}
+                  onKeyPress={() => this.handleClick('/cli')}
+                  role="button"
+                  className="hamburger-links"
+                >
+                  CLI
+                </div>
+                <a
+                  role="button"
+                  className="hamburger-links"
+                  href="https://github.com/bradford-hamilton/cipher-bin-server"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </Menu>
+            </MediaQuery>
           </div>
-        </div>
-      </Container>
-    </div>
-  );
-};
+        </Container>
+      </div>
+    );
+  }
+}
 
 export default withRouter(NavigationBar);
 

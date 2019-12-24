@@ -1,0 +1,25 @@
+.cli-wrapper {
+  background-color: white;
+  margin: 0 auto;
+  padding: 15px;
+  min-height: 300px;
+  margin-top: 25px;
+  white-space: pre-wrap;
+  border-radius: 4px;
+  font-family: 'Fira Code';
+  font-size: 17px;
+  word-break: break-word;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace !important;
+}
+
+.cli-header {
+  margin-bottom: 20px;
+}
+
+.download-options {
+  margin-top: 50px;
+}
+
+.tab-content {
+  margin-top: 25px;
+}
