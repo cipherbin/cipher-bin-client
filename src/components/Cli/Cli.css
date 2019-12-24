@@ -6,10 +6,8 @@
   margin-top: 25px;
   white-space: pre-wrap;
   border-radius: 4px;
-  font-family: 'Fira Code';
   font-size: 17px;
   word-break: break-word;
-  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace !important;
 }
 
 .cli-header {
@@ -17,7 +15,11 @@
 }
 
 .download-options {
-  margin-top: 50px;
+  margin-top: 60px;
+}
+
+.download-options h5 {
+  margin-bottom: 20px;
 }
 
 .tab-content {

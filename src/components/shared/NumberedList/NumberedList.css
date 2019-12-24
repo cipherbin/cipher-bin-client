@@ -1,0 +1,26 @@
+.install-list {
+  list-style: none;
+  padding-left: 40px;
+}
+
+.install-list-item {
+  margin: 0 0 0.5rem 0;
+  counter-increment: my-counter;
+  position: relative;
+}
+
+.install-list-item::before {
+  content: counter(my-counter);
+  color: #697386;
+  font-size: 1rem;
+  position: absolute;
+  --size: 24px;
+  left: calc(-1 * var(--size) - 10px);
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  background: #E3E8EE;
+  border-radius: 50%;
+  text-align: center;
+}

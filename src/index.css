@@ -1,17 +1,25 @@
 body {
   background-color: #ececec !important;
   margin: 0;
-  font-family: 'Catamaran', monospace !important;
+  font-family: Verdana !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #474747 !important;
 }
 
 code {
   font-family: 'Fira code', monospace !important;
+  font-size: 15px;
+  border-radius: 4px;
+  color: #3c4257 !important;
+  font-weight: 500;
+  background: #f7fafc;
+  border: 1px solid #e3e8ee;
+  padding: 1px 2px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Catamaran', monospace !important;
+  font-family: Verdana !important;
 }
 
 .modal-footer {

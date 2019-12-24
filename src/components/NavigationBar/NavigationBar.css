@@ -3,6 +3,7 @@
   box-shadow: 1px 1px 4px 2px #888888;
   height: 70px;
   width: 100%;
+  font-family: 'Catamaran', monospace !important;
 }
 
 .brand {
