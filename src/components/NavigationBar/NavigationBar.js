@@ -97,6 +97,15 @@ class NavigationBar extends Component {
               >
                 <div
                   tabIndex="-1"
+                  onClick={() => this.handleClick('/')}
+                  onKeyPress={() => this.handleClick('/')}
+                  role="button"
+                  className="hamburger-links"
+                >
+                  New message
+                </div>
+                <div
+                  tabIndex="-1"
                   onClick={() => this.handleClick('/how-it-works')}
                   onKeyPress={() => this.handleClick('/how-it-works')}
                   role="button"
