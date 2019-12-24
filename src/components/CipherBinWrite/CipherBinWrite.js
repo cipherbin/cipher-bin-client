@@ -194,9 +194,9 @@ class CipherBinWrite extends Component {
               <div className="options-wrapper">
                 <Form.Group>
                   <Row>
-                    <h5 className="options-heading">
+                    <h6 className="options-heading">
                       Receive a notification when your message is destroyed
-                    </h5>
+                    </h6>
                   </Row>
                   <Row>
                     <Col>
