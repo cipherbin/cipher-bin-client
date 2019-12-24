@@ -17,19 +17,21 @@ import Button from '../shared/Button/Button';
 import AES256 from '../../utils/aes256/aes256';
 import './CipherBinWrite.css';
 
+const initialState = {
+  message: '',
+  email: '',
+  referenceName: '',
+  oneTimeUrl: null,
+  showModal: false,
+  error: null,
+  isLoading: false,
+  copied: false,
+  showOptions: false,
+  password: null,
+};
+
 class CipherBinWrite extends Component {
-  state = {
-    message: '',
-    email: '',
-    referenceName: '',
-    oneTimeUrl: null,
-    showModal: false,
-    error: null,
-    isLoading: false,
-    copied: false,
-    showOptions: false,
-    password: null,
-  };
+  state = initialState;
 
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -96,18 +98,7 @@ class CipherBinWrite extends Component {
 
   toggleModal = () => {
     this.setState((prevState) => {
-      if (prevState.showModal) {
-        return {
-          message: '',
-          oneTimeUrl: null,
-          showModal: false,
-          error: null,
-          isLoading: false,
-          copied: false,
-          showOptions: false,
-        };
-      }
-
+      if (prevState.showModal) return initialState;
       return { showModal: true };
     });
   }
