@@ -4,8 +4,8 @@ import './NumberedList.css';
 
 const NumberedList = ({ liContents }) => (
   <ol className="install-list">
-    {liContents.map((content) => (
-      <li className="install-list-item">
+    {liContents.map((content, i) => (
+      <li className="install-list-item" key={i}>
         {content}
       </li>
     ))}

@@ -31,6 +31,8 @@
   height: 24px;
   width: 24px;
   margin-right: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 .unselectable {

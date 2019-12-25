@@ -1,7 +1,7 @@
 body {
   background-color: #ececec !important;
   margin: 0;
-  font-family: Verdana !important;
+  font-family: Verdana, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #474747 !important;
@@ -19,7 +19,7 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Verdana !important;
+  font-family: Verdana, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI" !important;
 }
 
 .modal-footer {

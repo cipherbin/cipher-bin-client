@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 import TerminalIcon from '../Icons/Terminal/Terminal';
 import './Terminal.css';
 
-const Terminal = ({ commands }) => (
+const Terminal = ({ commands, promptSymbol, paneName }) => (
   <div className="terminal-wrapper">
     <div className="terminal-header">
       <div className="terminal-svg-wrapper">
         <TerminalIcon />
       </div>
-      Terminal
+      {paneName && paneName}
     </div>
     <pre className="terminal-content">
       {commands.map((cmd, i) => (
         <span key={i}>
-          <span className="unselectable">
-            $
-          </span>
+          {promptSymbol !== '' && (
+            <span className="unselectable">
+              {promptSymbol}
+            </span>
+          )}
           {`${cmd}\n`}
         </span>
       ))}
@@ -28,8 +30,12 @@ export default Terminal;
 
 Terminal.propTypes = {
   commands: PropTypes.arrayOf(PropTypes.string),
+  promptSymbol: PropTypes.string,
+  paneName: PropTypes.string,
 };
 
 Terminal.defaultProps = {
   commands: ['please add at least one command'],
+  promptSymbol: '',
+  paneName: '',
 };

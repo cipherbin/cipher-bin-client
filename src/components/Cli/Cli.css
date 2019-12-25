@@ -1,13 +1,14 @@
 .cli-wrapper {
   background-color: white;
   margin: 0 auto;
-  padding: 15px;
+  padding: 30px;
   min-height: 300px;
   margin-top: 25px;
   white-space: pre-wrap;
   border-radius: 4px;
   font-size: 17px;
   word-break: break-word;
+  margin-bottom: 100px;
 }
 
 .cli-header {
@@ -24,4 +25,31 @@
 
 .tab-content {
   margin-top: 25px;
+}
+
+.commands-wrapper {
+  margin-top: 40px;
+}
+
+.commands-wrapper h5 {
+  margin-bottom: 15px;
+}
+
+.command-name {
+  margin-bottom: 10px;
+  font-size: 19px;
+}
+
+.command-explanation {
+  margin-top: 20px;
+}
+
+.section-indent {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.border-bottom {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #b8b8b8;
 }

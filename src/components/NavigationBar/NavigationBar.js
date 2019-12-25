@@ -25,14 +25,12 @@ class NavigationBar extends Component {
   closeHamburger = () => {
     this.setState({ hamburgerOpen: false });
   }
-  // const isDesktopOrLaptop = useMediaQuery({
-  //   query: '(min-device-width: 1224px)',
-  // });
 
-  // This keeps your state in sync with the opening/closing of the menu
+  // From the react-burger-menu docs:
+  // This keeps the state in sync with the opening/closing of the menu
   // via the default means, e.g. clicking the X, pressing the ESC key etc.
-  handleStateChange = (state) => {
-    this.setState({ hamburgerOpen: state.hamburgerOpen });
+  handleStateChange = ({ hamburgerOpen }) => {
+    this.setState({ hamburgerOpen });
   }
 
   render() {
