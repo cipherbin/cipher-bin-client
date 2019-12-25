@@ -53,3 +53,10 @@
   padding-bottom: 20px;
   border-bottom: 1px solid #b8b8b8;
 }
+
+@media only screen and (max-width: 768px) {
+  .section-indent {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

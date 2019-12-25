@@ -128,12 +128,8 @@ const Cli = () => (
           </div>
           <Terminal
             commands={[
-              `Read takes a single arg which is the cipherbin encrypted message URL. By default it will
-decrypt the message and print it inside your terminal. If you provide the --open (or -o)
-flag, it will open up the encrypted message inside your browser at https://cipherb.in
-
-Usage:
-  cipherbin read [flags]
+              `Usage:
+  cipherbin read [arg] [flags]
 
 Flags:
   -h, --help   help for read
@@ -141,9 +137,11 @@ Flags:
             ]}
           />
           <p className="command-explanation">
-            Instead of visiting the URL in your browser you can use the <code>read</code> command.
-            It takes one argument, which is the URL. Ensure you put the URL arg inside
-            single or double quotes.
+            Read takes a single arg which is the cipherbin encrypted message URL. By default
+            it will decrypt the message and print it inside your terminal. If you provide
+            the <code>--open</code> (or <code>-o</code>) flag, it will open up the encrypted
+            message inside your browser at <code>https://cipherb.in</code>. Ensure you put
+            the URL arg inside single or double quotes.
           </p>
           <Terminal
             promptSymbol="$"
