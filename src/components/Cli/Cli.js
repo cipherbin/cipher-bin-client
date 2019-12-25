@@ -22,10 +22,9 @@ const Cli = () => (
             <Tab eventKey="brew" title="brew">
               <div className="terminal-div">
                 <Terminal
-                  promptSymbol="$"
                   commands={[
-                    'brew tap bradford-hamilton/cipherbin',
-                    'brew install bradford-hamilton/cipherbin/cipherbin',
+                    { promptSymbol: '$', text: 'brew tap bradford-hamilton/cipherbin' },
+                    { promptSymbol: '$', text: 'brew install bradford-hamilton/cipherbin/cipherbin' },
                   ]}
                 />
               </div>
@@ -90,14 +89,16 @@ const Cli = () => (
           </div>
           <Terminal
             commands={[
-              `Usage:
-    cipherbin create [flags]
+              {
+                text: `Usage:
+  cipherbin create [flags]
 
-  Flags:
-    -e, --email string            when provided, a read receipt will be sent to this email upon read/destruction
-    -h, --help                    help for create
-    -p, --password string         provide an additional password to read the message
-    -r, --reference_name string   requires: email flag. This reference name will be quoted in the read receipt email`
+Flags:
+  -e, --email string            when provided, a read receipt will be sent to this email upon read/destruction
+  -h, --help                    help for create
+  -p, --password string         provide an additional password to read the message
+  -r, --reference_name string   requires: email flag. This reference name will be quoted in the read receipt email`,
+              },
             ]}
           />
           <p className="command-explanation">
@@ -112,8 +113,8 @@ const Cli = () => (
           </p>
           <Terminal
             commands={[
-              'Warning! This message will self destruct after reading it.',
-              'https://cipherb.in/msg?bin=some_uuid;some_key',
+              { color: 'rgb(250, 200, 107)', text: 'Warning! This message will self destruct after reading it.' },
+              { color: 'rgb(189, 224, 137)', text: 'https://cipherb.in/msg?bin=some_uuid;some_key' },
             ]}
           />
           <p className="command-explanation border-bottom">
@@ -128,12 +129,14 @@ const Cli = () => (
           </div>
           <Terminal
             commands={[
-              `Usage:
+              {
+                text: `Usage:
   cipherbin read [arg] [flags]
 
 Flags:
   -h, --help   help for read
   -o, --open   open and view the message in the web app in your browser`,
+              },
             ]}
           />
           <p className="command-explanation">
@@ -146,7 +149,7 @@ Flags:
           <Terminal
             promptSymbol="$"
             commands={[
-              'cipherbin read \'https://cipherb.in/msg?bin=some_uuid;some_key\' [...flags]',
+              { promptSymbol: '$', text: 'cipherbin read \'https://cipherb.in/msg?bin=some_uuid;some_key\' [...flags]' },
             ]}
           />
         </div>

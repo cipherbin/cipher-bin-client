@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import TerminalIcon from '../Icons/Terminal/Terminal';
 import './Terminal.css';
 
-const Terminal = ({ commands, promptSymbol, paneName }) => (
+const errMsg = "ERROR: in <Terminal /> component. Please provide the 'text' property on every 'command' passed into the 'commands' prop";
+
+const Terminal = ({ commands, paneName }) => (
   <div className="terminal-wrapper">
     <div className="terminal-header">
       <div className="terminal-svg-wrapper">
@@ -12,16 +14,22 @@ const Terminal = ({ commands, promptSymbol, paneName }) => (
       {paneName && paneName}
     </div>
     <pre className="terminal-content">
-      {commands.map((cmd, i) => (
-        <span key={i}>
-          {promptSymbol !== '' && (
-            <span className="unselectable">
-              {promptSymbol}
-            </span>
-          )}
-          {`${cmd}\n`}
-        </span>
-      ))}
+      {commands.map((cmd, i) => {
+        const error = cmd.text === '' || cmd.text === undefined;
+        return (
+          <span key={i} style={{ color: error ? '#DB3445' : (cmd.color || '#F5FBFF') }}>
+            {cmd.promptSymbol && cmd.promptSymbol !== '' && (
+              <span
+                className="unselectable"
+                style={{ color: error ? '#DB3445' : (cmd.color || '#F5FBFF') }}
+              >
+                {cmd.promptSymbol}
+              </span>
+            )}
+            {`${error ? errMsg : cmd.text}\n`}
+          </span>
+        );
+      })}
     </pre>
   </div>
 );
@@ -29,13 +37,15 @@ const Terminal = ({ commands, promptSymbol, paneName }) => (
 export default Terminal;
 
 Terminal.propTypes = {
-  commands: PropTypes.arrayOf(PropTypes.string),
-  promptSymbol: PropTypes.string,
+  commands: PropTypes.arrayOf(PropTypes.shape({
+    promptSymbol: PropTypes.string,
+    text: PropTypes.string,
+    color: PropTypes.string,
+  })),
   paneName: PropTypes.string,
 };
 
 Terminal.defaultProps = {
   commands: ['please add at least one command'],
-  promptSymbol: '',
   paneName: '',
 };
