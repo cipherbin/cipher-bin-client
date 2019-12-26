@@ -23,8 +23,8 @@ const Cli = () => (
               <div className="terminal-div">
                 <Terminal
                   commands={[
-                    { promptSymbol: '$', text: 'brew tap bradford-hamilton/cipherbin' },
-                    { promptSymbol: '$', text: 'brew install bradford-hamilton/cipherbin/cipherbin' },
+                    { promptSymbol: '$', text: 'brew tap cipherbin/cipherbin' },
+                    { promptSymbol: '$', text: 'brew install cipherbin/cipherbin/cipherbin' },
                   ]}
                 />
               </div>
@@ -38,9 +38,9 @@ const Cli = () => (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href="https://github.com/bradford-hamilton/cipher-bin-cli/releases/latest"
+                      href="https://github.com/cipherbin/cipher-bin-cli/releases/latest"
                     >
-                      https://github.com/bradford-hamilton/cipher-bin-cli/releases/latest
+                      https://github.com/cipherbin/cipher-bin-cli/releases/latest
                     </a>
                   </>,
                   <>
@@ -62,9 +62,9 @@ const Cli = () => (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href="https://github.com/bradford-hamilton/cipher-bin-cli/releases/latest"
+                      href="https://github.com/cipherbin/cipher-bin-cli/releases/latest"
                     >
-                      https://github.com/bradford-hamilton/cipher-bin-cli/releases/latest
+                      https://github.com/cipherbin/cipher-bin-cli/releases/latest
                     </a>
                   </>,
                   <>
