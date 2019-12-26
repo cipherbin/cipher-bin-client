@@ -8,8 +8,9 @@ const HowItWorks = () => (
       <h4>How it works</h4>
       <p className="section-indent-twenty">
         cipherb.in is a free and open source message encryption service that allows you
-        to create messages that can only be read once before they&#39;re destroyed. No one
-        other than you and the recipient can read the message. This includes cipherb.in!
+        to create encrypted messages that can only be read once before they&#39;re
+        destroyed. No one other than you and the recipient can read the message. This
+        includes cipherb.in!
       </p>
       <p className="section-indent-twenty">
         Type in your message and click &quot;encrypt&quot;. We provide you with a one time use
