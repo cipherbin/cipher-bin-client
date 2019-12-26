@@ -71,7 +71,16 @@ class NavigationBar extends Component {
                 role="button"
                 className="links"
               >
-                How does it work?
+                How it Works
+              </div>
+              <div
+                tabIndex="-1"
+                onClick={() => this.handleClick('/faqs')}
+                onKeyPress={() => this.handleClick('/faqs')}
+                role="button"
+                className="links"
+              >
+                FAQs
               </div>
               <div className="github-wrapper">
                 <a
@@ -109,7 +118,7 @@ class NavigationBar extends Component {
                   role="button"
                   className="hamburger-links"
                 >
-                  How does it work?
+                  How it works
                 </div>
                 <div
                   tabIndex="-1"

@@ -8,6 +8,7 @@ import CipherBinRead from './components/CipherBinRead/CipherBinRead';
 import Cli from './components/Cli/Cli';
 import FourOhFour from './components/FourOhFour/FourOhFour';
 import HowItWorks from './components/HowItWorks/HowItWorks';
+import FAQs from './components/FAQs/FAQs';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path="/msg" component={CipherBinRead} exact />
       <Route path="/cli" component={Cli} exact />
       <Route path="/how-it-works" component={HowItWorks} exact />
+      <Route path="/faqs" component={FAQs} exact />
       <Route component={FourOhFour} />
     </Switch>
   </Router>,

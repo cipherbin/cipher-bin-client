@@ -17,7 +17,7 @@ const Cli = () => (
         <h5>
           Install the CLI
         </h5>
-        <div className="section-indent">
+        <div className="section-indent-thirty">
           <Tabs defaultActiveKey="brew">
             <Tab eventKey="brew" title="brew">
               <div className="terminal-div">
@@ -81,7 +81,7 @@ const Cli = () => (
       </div>
       <div className="commands-wrapper">
         <h5>Commands</h5>
-        <div className="section-indent">
+        <div className="section-indent-thirty">
           <div className="command-name">
             <code>
               cipherbin create

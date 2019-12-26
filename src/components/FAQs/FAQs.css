@@ -1,0 +1,22 @@
+.faqs-wrapper {
+  margin-top: 30px;
+  font-size: 19px;
+  margin-bottom: 150px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 4px;
+}
+
+
+.faq-question {
+  margin-top: 35px;
+  color: black;
+}
+
+.faq-answer {
+
+}
+
+.faq-header {
+  color: black;
+}

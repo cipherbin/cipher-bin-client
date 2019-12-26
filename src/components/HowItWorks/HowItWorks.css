@@ -6,3 +6,24 @@
   padding: 25px;
   border-radius: 4px;
 }
+
+.how-it-works-wrapper h4 {
+  color: black;
+}
+
+.how-it-works-wrapper hr {
+  margin-bottom: 20px !important;
+}
+
+.section-indent-twenty {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .section-indent-twenty {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

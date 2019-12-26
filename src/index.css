@@ -22,6 +22,18 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Verdana, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI" !important;
 }
 
+h3 {
+  font-size: 28px !important;
+}
+
+h4 {
+  font-size: 22px !important;
+}
+
+p {
+  font-size: 16px;
+}
+
 .modal-footer {
   height: 70px !important;
 }
