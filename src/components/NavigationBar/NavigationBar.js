@@ -113,6 +113,15 @@ class NavigationBar extends Component {
                 </div>
                 <div
                   tabIndex="-1"
+                  onClick={() => this.handleClick('/cli')}
+                  onKeyPress={() => this.handleClick('/cli')}
+                  role="button"
+                  className="hamburger-links"
+                >
+                  CLI
+                </div>
+                <div
+                  tabIndex="-1"
                   onClick={() => this.handleClick('/how-it-works')}
                   onKeyPress={() => this.handleClick('/how-it-works')}
                   role="button"
@@ -122,12 +131,12 @@ class NavigationBar extends Component {
                 </div>
                 <div
                   tabIndex="-1"
-                  onClick={() => this.handleClick('/cli')}
-                  onKeyPress={() => this.handleClick('/cli')}
+                  onClick={() => this.handleClick('/faqs')}
+                  onKeyPress={() => this.handleClick('/faqs')}
                   role="button"
                   className="hamburger-links"
                 >
-                  CLI
+                  FAQs
                 </div>
                 <a
                   role="button"
