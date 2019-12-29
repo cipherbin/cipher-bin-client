@@ -84,7 +84,7 @@ class NavigationBar extends Component {
               </div>
               <div className="github-wrapper">
                 <a
-                  href="https://github.com/cipherbin/cipher-bin-server"
+                  href="https://github.com/cipherbin"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -141,7 +141,7 @@ class NavigationBar extends Component {
                 <a
                   role="button"
                   className="hamburger-links"
-                  href="https://github.com/cipherbin/cipher-bin-server"
+                  href="https://github.com/cipherbin"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -8,6 +8,7 @@ import CipherBinRead from './components/CipherBinRead/CipherBinRead';
 import Cli from './components/Cli/Cli';
 import FourOhFour from './components/FourOhFour/FourOhFour';
 import HowItWorks from './components/HowItWorks/HowItWorks';
+import Footer from './components/Footer/Footer';
 import FAQs from './components/FAQs/FAQs';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
@@ -17,15 +18,18 @@ axios.defaults.baseURL = process.env.REACT_APP_CIPHER_BIN_API_BASE_URL;
 
 ReactDOM.render(
   <Router>
-    <NavigationBar />
-    <Switch>
-      <Route path="/" component={App} exact />
-      <Route path="/msg" component={CipherBinRead} exact />
-      <Route path="/cli" component={Cli} exact />
-      <Route path="/how-it-works" component={HowItWorks} exact />
-      <Route path="/faqs" component={FAQs} exact />
-      <Route component={FourOhFour} />
-    </Switch>
+    <div className="content-wrapper">
+      <NavigationBar />
+      <Switch>
+        <Route path="/" component={App} exact />
+        <Route path="/msg" component={CipherBinRead} exact />
+        <Route path="/cli" component={Cli} exact />
+        <Route path="/how-it-works" component={HowItWorks} exact />
+        <Route path="/faqs" component={FAQs} exact />
+        <Route component={FourOhFour} />
+      </Switch>
+    </div>
+    <Footer />
   </Router>,
   document.getElementById('root'),
 );

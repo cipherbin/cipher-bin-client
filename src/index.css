@@ -37,3 +37,12 @@ p {
 .modal-footer {
   height: 70px !important;
 }
+
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  padding-bottom: 35px;
+}
