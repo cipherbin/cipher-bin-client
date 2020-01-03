@@ -5,20 +5,20 @@ import './Footer.css';
 const Footer = () => (
   <div className="footer">
     <Container>
-      Built with&nbsp;
+      Made with&nbsp;
       <span
         role="img"
         aria-label="footer content: Built with love by Bradford Lamson-Scribner"
       >
         ❤️
       </span>
-      by&nbsp;
+      on&nbsp;
       <a
-        href="https://github.com/bradford-hamilton"
+        href="https://github.com/cipherbin"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Bradford Lamson-Scribner
+        Github
       </a>
     </Container>
   </div>
