@@ -9,17 +9,16 @@ const Button = ({
   disabled,
   children,
 }) => (
-  <div
+  <button
+    type="button"
     className={`cipher-button ${disabled ? 'disabled' : ''}`}
     tabIndex="-2"
     onClick={onClick}
-    onKeyPress={onClick}
-    role="button"
     style={style}
     disabled={disabled}
   >
     {!children ? <span>{text}</span> : children}
-  </div>
+  </button>
 );
 
 export default Button;
