@@ -22,9 +22,16 @@
   background-color: #4F556A;
   padding: 15px;
   overflow: visible;
-  overflow-x: scroll;
   margin-bottom: 0px;
   overflow-y: hidden;
+}
+
+.terminal-content::-webkit-scrollbar {
+  background-color: rgb(114, 123, 156);
+}
+
+.terminal-content::-webkit-scrollbar-thumb:horizontal {
+  background: rgb(99, 104, 129);
 }
 
 .terminal-svg-wrapper {
