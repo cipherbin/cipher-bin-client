@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: cipherb.in
+Token: fc1923e78d9969930e68f928c0f2d52bcef34641972312b73bf43a7e62b198e7
