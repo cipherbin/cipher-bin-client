@@ -17,9 +17,11 @@ const Integrations = () => (
 				</a>
 			</p>
 			<hr />
-			<a href="https://github.com/cipherbin/cipher-bin-client/issues">
-				To suggest or contribute other integrations please open an issue on cipherbin github.
-			</a>
+			<p>To suggest or contribute other integrations please open an {" "}
+				<a href="https://github.com/cipherbin/cipher-bin-client/issues">
+				   issue on cipherbin
+			    </a> github.
+			</p>
 		</div>
 	</Container>
 );
