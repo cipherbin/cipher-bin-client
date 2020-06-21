@@ -18,7 +18,7 @@ const Integrations = () => (
 			</p>
 			<hr />
 			<a href="https://github.com/cipherbin/cipher-bin-client/issues">
-				Suggest or contribute other integrations by opening an issue on cipherbin github
+				To suggest or contribute other integrations please open an issue on cipherbin github.
 			</a>
 		</div>
 	</Container>
