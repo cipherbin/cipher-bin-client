@@ -1,0 +1,7 @@
+.coffee-svg {
+  fill: white;
+}
+
+.coffee-svg:hover {
+  fill: rgb(68, 68, 68);
+}

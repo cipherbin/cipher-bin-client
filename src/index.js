@@ -10,6 +10,7 @@ import FourOhFour from './components/FourOhFour/FourOhFour';
 import HowItWorks from './components/HowItWorks/HowItWorks';
 import Footer from './components/Footer/Footer';
 import FAQs from './components/FAQs/FAQs';
+import Coffee from './components/Coffee/Coffee';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path="/cli" component={Cli} exact />
         <Route path="/how-it-works" component={HowItWorks} exact />
         <Route path="/faqs" component={FAQs} exact />
+        <Route path="/coffee" component={Coffee} exact />
         <Route component={FourOhFour} />
       </Switch>
     </div>

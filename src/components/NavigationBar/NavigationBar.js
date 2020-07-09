@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import MediaQuery from 'react-responsive';
+import Coffee from '../shared/Icons/Coffee/Coffee';
 import githubLogo from '../../github_logo_white.png';
 import cipherBinLogo from '../../cipher_bin_logo.png';
 import './NavigationBar.css';
@@ -82,6 +83,15 @@ class NavigationBar extends Component {
               >
                 FAQs
               </div>
+              <div
+                tabIndex="-1"
+                onClick={() => this.handleClick('/coffee')}
+                onKeyPress={() => this.handleClick('/coffee')}
+                role="button"
+                className="links"
+              >
+                <Coffee />
+              </div>
               <div className="github-wrapper">
                 <a
                   href="https://github.com/cipherbin"
@@ -137,6 +147,15 @@ class NavigationBar extends Component {
                   className="hamburger-links"
                 >
                   FAQs
+                </div>
+                <div
+                  tabIndex="-1"
+                  onClick={() => this.handleClick('/coffee')}
+                  onKeyPress={() => this.handleClick('/coffee')}
+                  role="button"
+                  className="hamburger-links"
+                >
+                  Buy me a coffee
                 </div>
                 <a
                   role="button"

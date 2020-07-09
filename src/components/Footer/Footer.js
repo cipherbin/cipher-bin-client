@@ -12,7 +12,7 @@ const Footer = () => (
       >
         ❤️
       </span>
-      on&nbsp;
+      &nbsp;on&nbsp;
       <a
         href="https://github.com/cipherbin"
         target="_blank"
