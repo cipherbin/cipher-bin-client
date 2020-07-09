@@ -3,6 +3,9 @@ import { Container, Badge } from 'react-bootstrap';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './Coffee.css';
 
+const ETH_ADDR = '0x6A9F2C9C571d53d51Afa2DBe2E2D286Afc694A1A';
+const BTC_ADDR = 'bc1qssxm04f2rqn8g53t6u7z3hfxk4c7l9nzwdf2f0';
+
 class Coffee extends Component {
   state = { btc: false, eth: false };
 
@@ -24,7 +27,7 @@ class Coffee extends Component {
           <div className="row-text">
             BTC:
             <CopyToClipboard
-              text="bc1qssxm04f2rqn8g53t6u7z3hfxk4c7l9nzwdf2f0"
+              text={BTC_ADDR}
               onCopy={() => this.copyToClipboard('btc')}
             >
               <Badge variant="success" className="donate-badge">
@@ -32,13 +35,13 @@ class Coffee extends Component {
               </Badge>
             </CopyToClipboard>
             <span className="crypto-addr">
-              bc1qssxm04f2rqn8g53t6u7z3hfxk4c7l9nzwdf2f0
+              {BTC_ADDR}
             </span>
           </div>
           <div className="row-text">
             ETH:
             <CopyToClipboard
-              text="0x6A9F2C9C571d53d51Afa2DBe2E2D286Afc694A1A"
+              text={ETH_ADDR}
               onCopy={() => this.copyToClipboard('eth')}
             >
               <Badge variant="success" className="donate-badge">
@@ -46,7 +49,7 @@ class Coffee extends Component {
               </Badge>
             </CopyToClipboard>
             <span className="crypto-addr">
-              0x6A9F2C9C571d53d51Afa2DBe2E2D286Afc694A1A
+              {ETH_ADDR}
             </span>
           </div>
         </div>
