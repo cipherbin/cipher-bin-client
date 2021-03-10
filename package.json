@@ -15,6 +15,7 @@
     "react-responsive": "^8.0.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "tauri": "^0.14.1",
     "uuid": "^3.3.3"
   },
   "scripts": {
@@ -22,7 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && aws s3 sync build/ s3://cipherb.in/ --delete && aws cloudfront create-invalidation --distribution-id E18HTADXUBMWBO --paths \"/*\""
+    "deploy": "npm run build && aws s3 sync build/ s3://cipherb.in/ --delete && aws cloudfront create-invalidation --distribution-id E18HTADXUBMWBO --paths \"/*\"",
+    "tauri": "tauri"
   },
   "eslintConfig": {
     "extends": "airbnb",
